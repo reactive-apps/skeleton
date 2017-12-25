@@ -5,8 +5,8 @@ namespace App\Command;
 use ApiClients\Client\Supervisord\AsyncClientInterface;
 use ApiClients\Client\Supervisord\Resource\Async\Program;
 use ApiClients\Client\Supervisord\Resource\ProgramInterface;
+use Cake\Chronos\Chronos;
 use Psr\Log\LoggerInterface;
-use React\EventLoop\LoopInterface;
 use Recoil\Kernel\SystemKernel;
 use Rx\React\Promise;
 
@@ -51,12 +51,16 @@ final class RestartSupervisor implements Command
                 })->take(1)
             );
 
-            $uptime = $program->now() - $program->start();
-            $this->logger->info('"' . $program->name() . '" has been up and running for ' . $uptime . ' seconds, restarting');
+            $this->logger->info('"' . $program->name() . '" has been up and running since ' . $this->uptime($program) . ', restarting');
             $program = yield $program->restart();
 
-            $uptime = $program->now() - $program->start();
-            $this->logger->info('Restarted "' . $program->name() . '" up and running for ' . $uptime . ' seconds');
+            $this->logger->info('Restarted "' . $program->name() . '" up and running since ' . $this->uptime($program));
         });
+    }
+
+    private function uptime(ProgramInterface $program): string
+    {
+        $seconds = $program->now() - $program->start();
+        return Chronos::create()->subSeconds($seconds)->diffForHumans();
     }
 }
