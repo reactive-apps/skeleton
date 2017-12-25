@@ -51,16 +51,16 @@ final class RestartSupervisor implements Command
                 })->take(1)
             );
 
-            $this->logger->info('"' . $program->name() . '" has been up and running since ' . $this->uptime($program) . ', restarting');
+            $this->logger->info('"' . $program->name() . '" has been up and running for ' . $this->uptime($program) . ', restarting');
             $program = yield $program->restart();
 
-            $this->logger->info('Restarted "' . $program->name() . '" up and running since ' . $this->uptime($program));
+            $this->logger->info('Restarted "' . $program->name() . '" up and running for ' . $this->uptime($program));
         });
     }
 
     private function uptime(ProgramInterface $program): string
     {
         $seconds = $program->now() - $program->start();
-        return Chronos::create()->subSeconds($seconds)->diffForHumans();
+        return Chronos::create()->subSeconds($seconds)->diffForHumans(null, true);
     }
 }
