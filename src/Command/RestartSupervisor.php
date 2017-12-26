@@ -7,6 +7,7 @@ use ApiClients\Client\Supervisord\Resource\Async\Program;
 use ApiClients\Client\Supervisord\Resource\ProgramInterface;
 use Cake\Chronos\Chronos;
 use Psr\Log\LoggerInterface;
+use Recoil\Kernel;
 use Recoil\Kernel\SystemKernel;
 use Rx\React\Promise;
 
@@ -15,7 +16,7 @@ final class RestartSupervisor implements Command
     const COMMAND = 'restart-supervisor';
 
     /**
-     * @var SystemKernel
+     * @var Kernel
      */
     private $kernel;
 
@@ -30,11 +31,11 @@ final class RestartSupervisor implements Command
     private $logger;
 
     /**
-     * @param SystemKernel $kernel
+     * @param Kernel $kernel
      * @param AsyncClientInterface $supervisor
      * @param LoggerInterface $logger
      */
-    public function __construct(SystemKernel $kernel, AsyncClientInterface $supervisor, LoggerInterface $logger)
+    public function __construct(Kernel $kernel, AsyncClientInterface $supervisor, LoggerInterface $logger)
     {
         $this->kernel = $kernel;
         $this->supervisor = $supervisor;
