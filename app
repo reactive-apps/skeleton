@@ -14,6 +14,6 @@ require ROOT . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 /**
  * Create and boot up the application
  */
-(function (array $argv) {
-    ContainerFactory::create()->get(App::class)->boot($argv);
-})($argv);
+exit((function (array $argv) {
+    return ContainerFactory::create()->get(App::class)->boot($argv);
+})($argv));
