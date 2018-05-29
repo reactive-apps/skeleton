@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1eac7a40b5382146d816e9065d0784b3",
+    "content-hash": "962d469f7d28eb0f7b4b198f8fee5e0e",
     "packages": [
         {
             "name": "api-clients/client-services",
@@ -4131,12 +4131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/app.git",
-                "reference": "8306bfac56bd74e9f55b3cd3089d3c1b004f7585"
+                "reference": "1e9e8f2495f6bc5596d8df84da7e851107b646c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/app/zipball/8306bfac56bd74e9f55b3cd3089d3c1b004f7585",
-                "reference": "8306bfac56bd74e9f55b3cd3089d3c1b004f7585",
+                "url": "https://api.github.com/repos/reactive-apps/app/zipball/1e9e8f2495f6bc5596d8df84da7e851107b646c0",
+                "reference": "1e9e8f2495f6bc5596d8df84da7e851107b646c0",
                 "shasum": ""
             },
             "require": {
@@ -4154,6 +4154,7 @@
                 "php-di/php-di": "^6.0",
                 "react/event-loop": "^1.0 || ^0.5",
                 "reactive-apps/command": "dev-master",
+                "reactive-apps/rx-streams": "dev-master",
                 "reactivex/rxphp": "^2.0",
                 "recoil/react": "^1.0",
                 "recoil/recoil": "^1.0",
@@ -4197,7 +4198,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-05-18T15:35:21+00:00"
+            "time": "2018-05-22T20:53:00+00:00"
         },
         {
             "name": "reactive-apps/command",
@@ -4234,21 +4235,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-bunny-consumer.git",
-                "reference": "c52ec212ab64bdefcbdee2059de189b64730cbcf"
+                "reference": "0990133398c5487f9057475d1f2cafa292a0e155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-bunny-consumer/zipball/c52ec212ab64bdefcbdee2059de189b64730cbcf",
-                "reference": "c52ec212ab64bdefcbdee2059de189b64730cbcf",
+                "url": "https://api.github.com/repos/reactive-apps/command-bunny-consumer/zipball/0990133398c5487f9057475d1f2cafa292a0e155",
+                "reference": "0990133398c5487f9057475d1f2cafa292a0e155",
                 "shasum": ""
             },
             "require": {
                 "bunny/bunny": "^0.4.0",
                 "doctrine/annotations": "^1.4",
-                "php": "^7.1",
+                "php": "^7.2",
                 "reactive-apps/command": "dev-master",
+                "reactive-apps/rx-streams": "dev-master",
                 "wyrihaximus/doctrine-annotation-autoloader": "^1.0",
-                "wyrihaximus/react-observable-bunny": "dev-master",
+                "wyrihaximus/psr-3-callable-throwable-logger": "^1.0",
+                "wyrihaximus/psr-3-context-logger": "^1.0",
+                "wyrihaximus/react-observable-bunny": "^1.1",
                 "wyrihaximus/tactician-command-handler-mapper": "^1.0",
                 "wyrihaximus/tactician-job-command-mapper": "^1.0"
             },
@@ -4257,9 +4261,22 @@
             },
             "type": "library",
             "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "config/di/bunny.php",
+                        "config/di/bunny-consumer.php"
+                    ]
+                },
                 "reactive-apps": {
                     "command": {
                         "ReactiveApps\\Command\\BunnyConsumer": "src"
+                    },
+                    "required-config": {
+                        "bunny.host": "The IP address/hostname of the RabbitMQ server",
+                        "bunny.vhost": "The RabbitMQ vhost to connect to",
+                        "bunny.user": "User to login to RabbitMQ",
+                        "bunny.password": "Password to login to RabbitMQ",
+                        "bunny.queues": "array with callables for each queue to handle new messages: ['queue' => function () {}]"
                     }
                 }
             },
@@ -4269,7 +4286,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-05-07T20:18:41+00:00"
+            "time": "2018-05-26T22:29:09+00:00"
         },
         {
             "name": "reactive-apps/command-http-server",
@@ -4277,20 +4294,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-http-server.git",
-                "reference": "adb4e8afff03ab63b0c1e836d537ef9638dc7c37"
+                "reference": "66c63d21fa88d8fa4947f96dce4a162f8ab66f0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/adb4e8afff03ab63b0c1e836d537ef9638dc7c37",
-                "reference": "adb4e8afff03ab63b0c1e836d537ef9638dc7c37",
+                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/66c63d21fa88d8fa4947f96dce4a162f8ab66f0a",
+                "reference": "66c63d21fa88d8fa4947f96dce4a162f8ab66f0a",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.4",
                 "nikic/fast-route": "^1.2",
-                "php": "^7.0",
+                "php": "^7.2",
                 "react/http": "^0.8.0",
                 "reactive-apps/command": "dev-master",
+                "reactive-apps/rx-streams": "dev-master",
                 "wyrihaximus/doctrine-annotation-autoloader": "^1.0",
                 "wyrihaximus/psr-3-callable-throwable-logger": "^1.0",
                 "wyrihaximus/psr-3-context-logger": "^1.0",
@@ -4324,7 +4342,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-05-14T20:36:52+00:00"
+            "time": "2018-05-20T13:49:49+00:00"
         },
         {
             "name": "reactive-apps/command-supervisor",
@@ -4332,19 +4350,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-supervisor.git",
-                "reference": "8e865a08966700365cd0c7e96b721a157508ea88"
+                "reference": "eaf163ad50790e14c000a865b8e5b0242f8db109"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-supervisor/zipball/8e865a08966700365cd0c7e96b721a157508ea88",
-                "reference": "8e865a08966700365cd0c7e96b721a157508ea88",
+                "url": "https://api.github.com/repos/reactive-apps/command-supervisor/zipball/eaf163ad50790e14c000a865b8e5b0242f8db109",
+                "reference": "eaf163ad50790e14c000a865b8e5b0242f8db109",
                 "shasum": ""
             },
             "require": {
                 "api-clients/supervisord": "^1.0",
                 "cakephp/chronos": "^1.1",
+                "php": "^7.2",
                 "psr/log": "^1.0",
                 "reactive-apps/command": "dev-master",
+                "reactive-apps/rx-streams": "dev-master",
                 "recoil/react": "^1.0",
                 "recoil/recoil": "^1.0"
             },
@@ -4353,9 +4373,17 @@
             },
             "type": "library",
             "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "config/di/supervisor.php"
+                    ]
+                },
                 "reactive-apps": {
                     "command": {
                         "ReactiveApps\\Command\\Supervisor": "src"
+                    },
+                    "required-config": {
+                        "supervisor.process.name": "The name of the process to restart"
                     }
                 }
             },
@@ -4365,7 +4393,37 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-04-13T17:16:22+00:00"
+            "time": "2018-05-20T20:38:47+00:00"
+        },
+        {
+            "name": "reactive-apps/rx-streams",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactive-apps/rx-streams.git",
+                "reference": "c2e842e95b41561daf427cfafb38eff1baa74069"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactive-apps/rx-streams/zipball/c2e842e95b41561daf427cfafb38eff1baa74069",
+                "reference": "c2e842e95b41561daf427cfafb38eff1baa74069",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "reactivex/rxphp": "^2.0"
+            },
+            "require-dev": {
+                "api-clients/test-utilities": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReactiveApps\\Rx\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2018-05-20T10:55:26+00:00"
         },
         {
             "name": "reactivex/rxphp",
@@ -4801,12 +4859,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "6fe712594835e5b70de30aec5fc244a7bd8464cd"
+                "reference": "79ef6566b9c7fe6c1b6f6d12e5729d5cb545ac69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6fe712594835e5b70de30aec5fc244a7bd8464cd",
-                "reference": "6fe712594835e5b70de30aec5fc244a7bd8464cd",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/79ef6566b9c7fe6c1b6f6d12e5729d5cb545ac69",
+                "reference": "79ef6566b9c7fe6c1b6f6d12e5729d5cb545ac69",
                 "shasum": ""
             },
             "conflict": {
@@ -4817,7 +4875,7 @@
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
                 "aws/aws-sdk-php": ">=3,<3.2.1",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
-                "cakephp/cakephp": ">=1.3,<1.3.18|>=2,<2.4.99|>=2.5,<2.5.99|>=2.6,<2.6.12|>=2.7,<2.7.6|>=3,<3.0.15|>=3.1,<3.1.4",
+                "cakephp/cakephp": ">=1.3,<1.3.18|>=2,<2.4.99|>=2.5,<2.5.99|>=2.6,<2.6.12|>=2.7,<2.7.6|>=3,<3.0.15|>=3.1,<3.1.4|>=3.4,<3.4.14|>=3.5,<3.5.17|>=3.6,<3.6.4",
                 "cart2quote/module-quotation": ">=4.1.6,<=4.4.5|>=5,<5.4.4",
                 "cartalyst/sentry": "<=2.1.6",
                 "codeigniter/framework": "<=3.0.6",
@@ -4905,7 +4963,7 @@
                 "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
-                "thelia/thelia": ">=2.1,<2.1.2|>=2.1.0-beta1,<2.1.3",
+                "thelia/thelia": ">=2.1.0-beta1,<2.1.3|>=2.1,<2.1.2",
                 "titon/framework": ">=0,<9.9.99",
                 "twig/twig": "<1.20",
                 "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.22|>=8,<8.7.5",
@@ -4957,7 +5015,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2018-05-11T06:55:15+00:00"
+            "time": "2018-05-21T07:43:38+00:00"
         },
         {
             "name": "roave/signature",
@@ -5035,16 +5093,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.9",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "5b1fdfa8eb93464bcc36c34da39cedffef822cdf"
+                "reference": "36f83f642443c46f3cf751d4d2ee5d047d757a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/5b1fdfa8eb93464bcc36c34da39cedffef822cdf",
-                "reference": "5b1fdfa8eb93464bcc36c34da39cedffef822cdf",
+                "url": "https://api.github.com/repos/symfony/console/zipball/36f83f642443c46f3cf751d4d2ee5d047d757a27",
+                "reference": "36f83f642443c46f3cf751d4d2ee5d047d757a27",
                 "shasum": ""
             },
             "require": {
@@ -5100,20 +5158,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-30T01:22:56+00:00"
+            "time": "2018-05-16T08:49:21+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v4.0.9",
+            "version": "v4.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "e1d57cdb357e5b10f5fdacbb0b86689c0a435e6e"
+                "reference": "4e7c98de67cc4171d4c986554e09a511da40f3d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e1d57cdb357e5b10f5fdacbb0b86689c0a435e6e",
-                "reference": "e1d57cdb357e5b10f5fdacbb0b86689c0a435e6e",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/4e7c98de67cc4171d4c986554e09a511da40f3d8",
+                "reference": "4e7c98de67cc4171d4c986554e09a511da40f3d8",
                 "shasum": ""
             },
             "require": {
@@ -5156,7 +5214,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-30T16:59:37+00:00"
+            "time": "2018-05-16T09:05:32+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -5775,16 +5833,16 @@
         },
         {
             "name": "wyrihaximus/react-observable-bunny",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-observable-bunny.git",
-                "reference": "764f9eed3040b577e4b97359fd1e071af8cd1473"
+                "reference": "1eae354d2b21625781d84c828d75090887b3724a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-observable-bunny/zipball/764f9eed3040b577e4b97359fd1e071af8cd1473",
-                "reference": "764f9eed3040b577e4b97359fd1e071af8cd1473",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-observable-bunny/zipball/1eae354d2b21625781d84c828d75090887b3724a",
+                "reference": "1eae354d2b21625781d84c828d75090887b3724a",
                 "shasum": ""
             },
             "require": {
@@ -5815,7 +5873,7 @@
                 }
             ],
             "description": "RxPHP decorator around bunny",
-            "time": "2018-04-07T13:13:18+00:00"
+            "time": "2018-05-26T21:28:59+00:00"
         },
         {
             "name": "wyrihaximus/react-psr-3-loggly",
@@ -8357,7 +8415,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.0.9",
+            "version": "v4.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -8420,20 +8478,21 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.0.9",
+            "version": "v4.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21"
+                "reference": "7a69e728e9f0044958c2fd7d72bfe5e7bd1a4d04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21",
-                "reference": "5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7a69e728e9f0044958c2fd7d72bfe5e7bd1a4d04",
+                "reference": "7a69e728e9f0044958c2fd7d72bfe5e7bd1a4d04",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
             },
             "type": "library",
             "extra": {
@@ -8465,20 +8524,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-22T10:50:29+00:00"
+            "time": "2018-05-16T09:05:32+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.9",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "bd14efe8b1fabc4de82bf50dce62f05f9a102433"
+                "reference": "472a92f3df8b247b49ae364275fb32943b9656c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/bd14efe8b1fabc4de82bf50dce62f05f9a102433",
-                "reference": "bd14efe8b1fabc4de82bf50dce62f05f9a102433",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/472a92f3df8b247b49ae364275fb32943b9656c6",
+                "reference": "472a92f3df8b247b49ae364275fb32943b9656c6",
                 "shasum": ""
             },
             "require": {
@@ -8514,20 +8573,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-04T05:07:11+00:00"
+            "time": "2018-05-16T08:49:21+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v4.0.9",
+            "version": "v4.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "371532a2cfe932f7a3766dd4c45364566def1dd0"
+                "reference": "ac1c3a814ddcad9d0cc2d0382e215d3bff8ae2d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/371532a2cfe932f7a3766dd4c45364566def1dd0",
-                "reference": "371532a2cfe932f7a3766dd4c45364566def1dd0",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/ac1c3a814ddcad9d0cc2d0382e215d3bff8ae2d2",
+                "reference": "ac1c3a814ddcad9d0cc2d0382e215d3bff8ae2d2",
                 "shasum": ""
             },
             "require": {
@@ -8568,7 +8627,62 @@
                 "configuration",
                 "options"
             ],
-            "time": "2018-01-18T22:19:33+00:00"
+            "time": "2018-05-11T15:58:37+00:00"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2018-04-30T19:57:29+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -8686,16 +8800,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.9",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "4b7d64e852886319e93ddfdecff0d744ab87658b"
+                "reference": "4cbf2db9abcb01486a21b7a059e03a62fae63187"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/4b7d64e852886319e93ddfdecff0d744ab87658b",
-                "reference": "4b7d64e852886319e93ddfdecff0d744ab87658b",
+                "url": "https://api.github.com/repos/symfony/process/zipball/4cbf2db9abcb01486a21b7a059e03a62fae63187",
+                "reference": "4cbf2db9abcb01486a21b7a059e03a62fae63187",
                 "shasum": ""
             },
             "require": {
@@ -8731,11 +8845,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:22:50+00:00"
+            "time": "2018-05-16T08:49:21+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v4.0.9",
+            "version": "v4.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -8784,20 +8898,21 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.9",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "033cfa61ef06ee0847e056e530201842b6e926c3"
+                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/033cfa61ef06ee0847e056e530201842b6e926c3",
-                "reference": "033cfa61ef06ee0847e056e530201842b6e926c3",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
+                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-ctype": "~1.8"
             },
             "conflict": {
                 "symfony/console": "<3.4"
@@ -8838,7 +8953,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-08T08:21:29+00:00"
+            "time": "2018-05-03T23:18:14+00:00"
         },
         {
             "name": "theseer/tokenizer",

@@ -10,8 +10,6 @@
         "reactive-apps/command-http-server": "dev-master",
         "reactive-apps/command-supervisor": "dev-master",
         "reactivex/rxphp": "^2.0",
-        "recoil/react": "^1.0",
-        "recoil/recoil": "^1.0",
         "roave/better-reflection": "^2.0",
         "roave/security-advisories": "dev-master",
         "wyrihaximus/psr-3-filter": "^1.1"
@@ -29,7 +27,9 @@
         "reactive-apps": {
             "config": [
                 "etc/config/app.php",
-                "etc/config/http-server.php"
+                "etc/config/bunny.php",
+                "etc/config/http-server.php",
+                "etc/config/supervisor.php"
             ]
         }
     },
