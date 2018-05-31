@@ -8,7 +8,6 @@
         "reactive-apps/command-bunny-consumer": "dev-master",
         "reactive-apps/command-http-server": "dev-master",
         "reactive-apps/command-supervisor": "dev-master",
-        "roave/better-reflection": "^2.0",
         "roave/security-advisories": "dev-master"
     },
     "require-dev": {
