@@ -11,8 +11,7 @@
         "reactive-apps/command-supervisor": "dev-master",
         "reactivex/rxphp": "^2.0",
         "roave/better-reflection": "^2.0",
-        "roave/security-advisories": "dev-master",
-        "wyrihaximus/psr-3-filter": "^1.1"
+        "roave/security-advisories": "dev-master"
     },
     "require-dev": {
         "api-clients/test-utilities": "^4.1"
