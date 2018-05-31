@@ -3,7 +3,6 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.2",
-        "joshdifabio/composed": "^1.0",
         "react/event-loop": "^1.0 || ^0.5",
         "reactive-apps/app": "dev-master",
         "reactive-apps/command-bunny-consumer": "dev-master",
