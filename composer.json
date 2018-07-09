@@ -10,7 +10,7 @@
         "roave/security-advisories": "dev-master"
     },
     "require-dev": {
-        "api-clients/test-utilities": "^4.1"
+        "api-clients/test-utilities": "^5.0"
     },
     "config": {
         "sort-packages": true,
