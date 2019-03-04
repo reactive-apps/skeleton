@@ -1,4 +1,6 @@
 {
+    "name": "reactive-apps/skeleton",
+    "description": "Reactive Apps Skeleton",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {

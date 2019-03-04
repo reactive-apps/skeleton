@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1b279fdf7e120fea32319af89d5540d",
+    "content-hash": "9ed8ec70fbcbd2fe36d7865c56f3f07f",
     "packages": [
         {
             "name": "api-clients/client-services",
@@ -4939,12 +4939,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-http-server.git",
-                "reference": "29e1767e45bccbd3053f97955c1aafccef6a52f4"
+                "reference": "858f3142f5a3e746d50366024c817dc9ea514751"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/29e1767e45bccbd3053f97955c1aafccef6a52f4",
-                "reference": "29e1767e45bccbd3053f97955c1aafccef6a52f4",
+                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/858f3142f5a3e746d50366024c817dc9ea514751",
+                "reference": "858f3142f5a3e746d50366024c817dc9ea514751",
                 "shasum": ""
             },
             "require": {
@@ -5012,7 +5012,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-02-11T10:33:18+00:00"
+            "time": "2019-03-03T20:17:20+00:00"
         },
         {
             "name": "reactive-apps/command-supervisor",
@@ -10159,7 +10159,7 @@
                     "homepage": "http://blog.astrumfutura.com"
                 },
                 {
-                    "name": "Théo Fidry",
+                    "name": "Théo FIDRY",
                     "email": "theo.fidry@gmail.com"
                 }
             ],
