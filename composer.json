@@ -1,6 +1,7 @@
 {
     "name": "reactive-apps/skeleton",
     "description": "Reactive Apps Skeleton",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
