@@ -1,1 +1,2 @@
-# reactphp-silly-app-skeleton
+# Reactive App Skeleton
+

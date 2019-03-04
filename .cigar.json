@@ -1,0 +1,12 @@
+[
+  {
+    "url": "http://localhost:54321/ping",
+    "status": 200,
+    "content": "pong"
+  },
+  {
+    "url": "http://localhost:54321/",
+    "status": 200,
+    "content": "Come back later"
+  }
+]

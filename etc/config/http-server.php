@@ -1,19 +1,39 @@
-<?php
+<?php declare(strict_types=1);
 
-use React\EventLoop\LoopInterface;
-use React\Http\Response;
-use React\Promise\Promise;
+use function DI\factory;
+use function DI\get;
+use WyriHaximus\React\Http\Middleware\MeasureMiddleware;
+use WyriHaximus\React\Http\Middleware\WithHeadersMiddleware;
+use WyriHaximus\React\Inspector\Http\Middleware\MeasureMiddlewareCollector;
 
 return [
-    'http-server.address' => '0.0.0.0:8888',
-    'http-server.handler' => function (LoopInterface $loop) {
-        return function () use ($loop) {
-            return new Promise(function ($resolve) use ($loop) {
-                $loop->addTimer(10, function () use ($resolve) {
-                    $resolve(new Response(200, [], 'Hello World'));
-                });
-            });
-        };
+    'http-server.middleware.measure' => function (MeasureMiddlewareCollector $mmc) {
+        $mm = new MeasureMiddleware();
+        $mmc->register('http-server.reqs', $mm);
+
+        return $mm;
     },
-    'http-server.public' => dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR,
+    'http-server.address' => \getenv('REACT_HTTP_SOCKET_ADDRESS'),
+    'http-server.public' => \dirname(__DIR__, 2) . \DIRECTORY_SEPARATOR . 'public' . \DIRECTORY_SEPARATOR,
+    'http-server.hsts' => !(\getenv('DEBUG') === 'false' ? false : true),
+    'http-server.middleware.prefix' => factory(function (MeasureMiddleware $measure) {
+        $middleware = [];
+
+        $middleware[] = $measure;
+
+        return $middleware;
+    })->parameter('measure', get('config.http-server.middleware.measure')),
+    'http-server.middleware.suffix' => factory(function (string $version) {
+        $middleware = [];
+
+        $middleware[] = new WithHeadersMiddleware([
+            'X-Powered-By' => 'PHP/9.13.37',
+        ]);
+
+        return $middleware;
+    })->parameter('version', get('config.app.version')),
+    'http-server.pool.ttl' => 3.0,
+    'http-server.pool.min' => 0,
+    'http-server.pool.max' => 6,
+    'http-server.rewrites' => [],
 ];

@@ -8,7 +8,6 @@ use ApiClients\Client\Supervisord\Resource\ProgramInterface;
 use Cake\Chronos\Chronos;
 use Psr\Log\LoggerInterface;
 use Recoil\Kernel;
-use Recoil\Kernel\SystemKernel;
 use Rx\React\Promise;
 
 final class RestartSupervisor implements Command
@@ -31,9 +30,9 @@ final class RestartSupervisor implements Command
     private $logger;
 
     /**
-     * @param Kernel $kernel
+     * @param Kernel               $kernel
      * @param AsyncClientInterface $supervisor
-     * @param LoggerInterface $logger
+     * @param LoggerInterface      $logger
      */
     public function __construct(Kernel $kernel, AsyncClientInterface $supervisor, LoggerInterface $logger)
     {
@@ -42,13 +41,13 @@ final class RestartSupervisor implements Command
         $this->logger = $logger;
     }
 
-    public function __invoke()
+    public function __invoke(): void
     {
         $this->kernel->execute(function () {
             /** @var Program $program */
             $program = yield Promise::fromObservable(
                 $this->supervisor->programs()->filter(function (ProgramInterface $program) {
-                    return $program->name() === getenv('SUPERVISOR_NAME');
+                    return $program->name() === \getenv('SUPERVISOR_NAME');
                 })->take(1)
             );
 
@@ -62,6 +61,7 @@ final class RestartSupervisor implements Command
     private function uptime(ProgramInterface $program): string
     {
         $seconds = $program->now() - $program->start();
+
         return Chronos::create()->subSeconds($seconds)->diffForHumans(null, true);
     }
 }

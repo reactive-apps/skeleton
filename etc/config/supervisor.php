@@ -1,9 +1,6 @@
-<?php
-
-use React\EventLoop\LoopInterface;
-use React\Http\Response;
-use React\Promise\Promise;
+<?php declare(strict_types=1);
 
 return [
-    'supervisor.process.name' => 'ping',
+    'supervisor.process.host' => \getenv('SUPERVISOR_HOST'),
+    'supervisor.process.name' => \getenv('SUPERVISOR_NAME'),
 ];
