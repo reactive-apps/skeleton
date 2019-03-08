@@ -43,7 +43,7 @@ final class Root
 
         return new Response(
             200,
-            ['Content-Type' => 'text'],
+            ['Content-Type' => 'text/plain'],
             'This service was started ' . (\time() - $this->time) . ' seconds ago, processing your request took ' . (\time() - $start) . ' seconds'
         );
     }

@@ -5,6 +5,23 @@
             "src"
         ]
     },
+    "mutators": {
+        "IncrementInteger": {
+            "ignore": [
+                "App\\Controller\\Root"
+            ]
+        },
+        "OneZeroInteger": {
+            "ignore": [
+                "App\\Controller\\Root"
+            ]
+        },
+        "DecrementInteger": {
+            "ignore": [
+                "App\\Controller\\Root"
+            ]
+        }
+    },
     "logs": {
         "text": "infection-log.txt"
     }
