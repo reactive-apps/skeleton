@@ -5,8 +5,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "brunty/cigar": "^1.11",
+        "php-di-definitions/react-event-loop-inspected": "dev-master",
         "reactive-apps/app": "dev-master",
         "reactive-apps/command-bunny-consumer": "dev-master",
         "reactive-apps/command-http-server": "dev-master",
@@ -16,7 +17,10 @@
         "vlucas/phpdotenv": "^3.3",
         "wyrihaximus/react-http-middleware-measure": "dev-master",
         "wyrihaximus/react-http-middleware-with-headers": "^1.0",
-        "wyrihaximus/react-inspector-http-middleware-measure": "dev-master"
+        "wyrihaximus/react-inspector-child-process-pools": "dev-master",
+        "wyrihaximus/react-inspector-cpu-usage": "dev-master",
+        "wyrihaximus/react-inspector-http-middleware-measure": "dev-master",
+        "wyrihaximus/react-inspector-memory-usage": "dev-master"
     },
     "require-dev": {
         "api-clients/test-utilities": "^5.0"
@@ -24,10 +28,15 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "7.2"
+            "php": "7.3"
         }
     },
     "extra": {
+        "php-di-definitions": {
+            "di": [
+                "etc/di/*.php"
+            ]
+        },
         "reactive-apps": {
             "config": [
                 "etc/config/*.php"
