@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "2f8387b85e3b5e4207dc44615b89e934",
@@ -3323,6 +3323,47 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "php-di-definitions/api-clients-supervisord",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI-Definitions/api-clients-supervisord.git",
+                "reference": "fe5c82bd707ce012c97bbea2e5b524b40d435fcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-DI-Definitions/api-clients-supervisord/zipball/fe5c82bd707ce012c97bbea2e5b524b40d435fcb",
+                "reference": "fe5c82bd707ce012c97bbea2e5b524b40d435fcb",
+                "shasum": ""
+            },
+            "require": {
+                "api-clients/supervisord": "^1.1",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "php-di/php-di": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "etc/di/supervisord.php"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPDIDefinitions\\ApiClients\\Supervisord\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-DI definition for api-clients/supervisord",
+            "time": "2019-03-09T11:35:40+00:00"
+        },
+        {
             "name": "php-di-definitions/definitions-gatherer",
             "version": "1.1.0",
             "source": {
@@ -3925,6 +3966,52 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/event-dispatcher",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/event-dispatcher.git",
+                "reference": "dbefd12671e8a14ec7f180cab83036ed26714bb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/event-dispatcher/zipball/dbefd12671e8a14ec7f180cab83036ed26714bb0",
+                "reference": "dbefd12671e8a14ec7f180cab83036ed26714bb0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\EventDispatcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Standard interfaces for event handling.",
+            "keywords": [
+                "events",
+                "psr",
+                "psr-14"
+            ],
+            "time": "2019-01-08T18:20:26+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -4779,12 +4866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/app.git",
-                "reference": "439b262bae1d1f6db0b476a903dabf7ff1c58ef1"
+                "reference": "84ad9b0c9ec0fcb5b64fd72b7e4eb94b4bdf7a02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/app/zipball/439b262bae1d1f6db0b476a903dabf7ff1c58ef1",
-                "reference": "439b262bae1d1f6db0b476a903dabf7ff1c58ef1",
+                "url": "https://api.github.com/repos/reactive-apps/app/zipball/84ad9b0c9ec0fcb5b64fd72b7e4eb94b4bdf7a02",
+                "reference": "84ad9b0c9ec0fcb5b64fd72b7e4eb94b4bdf7a02",
                 "shasum": ""
             },
             "require": {
@@ -4801,11 +4888,11 @@
                 "php-di/php-di": "^6.0",
                 "react/event-loop": "^1.0 || ^0.5",
                 "reactive-apps/command": "dev-master",
-                "reactive-apps/rx-streams": "dev-master",
                 "reactivex/rxphp": "^2.0",
                 "recoil/react": "^1.0",
                 "recoil/recoil": "^1.0",
                 "roave/better-reflection": "^3.0 || ^2.0",
+                "wyrihaximus/broadcast": "dev-master",
                 "wyrihaximus/doctrine-annotation-autoloader": "^1.0",
                 "wyrihaximus/get-in-packages-composer.jason": "^1.0",
                 "wyrihaximus/monolog-formatted-psr-handler": "^1.0",
@@ -4825,14 +4912,17 @@
             "extra": {
                 "php-di-definitions": {
                     "di": [
-                        "config/di/app.php",
-                        "config/di/logger.php",
-                        "config/di/output.php"
+                        "config/di/*.php"
                     ]
                 },
                 "reactive-apps": {
                     "command": {
                         "ReactiveApps\\Command": "src/Command"
+                    },
+                    "listeners": {
+                        "ReactiveApps\\Event\\Boot": [
+                            "src/Listener/Signals.php"
+                        ]
                     }
                 }
             },
@@ -4842,7 +4932,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2019-03-03T18:42:55+00:00"
+            "time": "2019-04-11T18:59:31+00:00"
         },
         {
             "name": "reactive-apps/command",
@@ -4850,12 +4940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command.git",
-                "reference": "784be6b87a014a5180cd4164becb9100f67d4ea5"
+                "reference": "154946b83b2dd08244dbd3747418f66854884aa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command/zipball/784be6b87a014a5180cd4164becb9100f67d4ea5",
-                "reference": "784be6b87a014a5180cd4164becb9100f67d4ea5",
+                "url": "https://api.github.com/repos/reactive-apps/command/zipball/154946b83b2dd08244dbd3747418f66854884aa7",
+                "reference": "154946b83b2dd08244dbd3747418f66854884aa7",
                 "shasum": ""
             },
             "require": {
@@ -4871,7 +4961,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2019-01-22T13:09:00+00:00"
+            "time": "2019-03-17T13:35:04+00:00"
         },
         {
             "name": "reactive-apps/command-bunny-consumer",
@@ -5073,18 +5163,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-supervisor.git",
-                "reference": "6b44e687aaae18b33a206d4ee2b348b60bc8c04b"
+                "reference": "37adc1f58cfee7082a39f6fdaf1c7a562fe86cfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-supervisor/zipball/6b44e687aaae18b33a206d4ee2b348b60bc8c04b",
-                "reference": "6b44e687aaae18b33a206d4ee2b348b60bc8c04b",
+                "url": "https://api.github.com/repos/reactive-apps/command-supervisor/zipball/37adc1f58cfee7082a39f6fdaf1c7a562fe86cfa",
+                "reference": "37adc1f58cfee7082a39f6fdaf1c7a562fe86cfa",
                 "shasum": ""
             },
             "require": {
                 "api-clients/supervisord": "^1.0",
                 "cakephp/chronos": "^1.1",
                 "php": "^7.2",
+                "php-di-definitions/api-clients-supervisord": "dev-master",
                 "psr/log": "^1.0",
                 "reactive-apps/command": "dev-master",
                 "reactive-apps/rx-streams": "dev-master",
@@ -5117,7 +5208,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2019-02-12T06:46:31+00:00"
+            "time": "2019-03-09T11:39:29+00:00"
         },
         {
             "name": "reactive-apps/rx-streams",
@@ -5125,12 +5216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/rx-streams.git",
-                "reference": "1860a3af2130d2cc09f12a671a255da17a673a59"
+                "reference": "997e2b36bb8dfe62c742e6dd7919f379deda92fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/rx-streams/zipball/1860a3af2130d2cc09f12a671a255da17a673a59",
-                "reference": "1860a3af2130d2cc09f12a671a255da17a673a59",
+                "url": "https://api.github.com/repos/reactive-apps/rx-streams/zipball/997e2b36bb8dfe62c742e6dd7919f379deda92fb",
+                "reference": "997e2b36bb8dfe62c742e6dd7919f379deda92fb",
                 "shasum": ""
             },
             "require": {
@@ -5147,7 +5238,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2019-01-22T13:09:11+00:00"
+            "time": "2019-03-17T13:34:59+00:00"
         },
         {
             "name": "reactivex/rxphp",
@@ -5589,12 +5680,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "4e04718428742618a4bf24dafca45b8645c9320d"
+                "reference": "ff41a9a96718245c7160588928e6d217cfb0393c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4e04718428742618a4bf24dafca45b8645c9320d",
-                "reference": "4e04718428742618a4bf24dafca45b8645c9320d",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ff41a9a96718245c7160588928e6d217cfb0393c",
+                "reference": "ff41a9a96718245c7160588928e6d217cfb0393c",
                 "shasum": ""
             },
             "conflict": {
@@ -5614,8 +5705,8 @@
                 "codeigniter/framework": "<=3.0.6",
                 "composer/composer": "<=1.0.0-alpha11",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
-                "contao/core": ">=2,<3.5.35",
-                "contao/core-bundle": ">=4,<4.4.18|>=4.5,<4.5.8",
+                "contao/core": ">=2,<3.5.39",
+                "contao/core-bundle": ">=4,<4.4.37|>=4.5,<4.7.3",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "contao/newsletter-bundle": ">=4,<4.1",
                 "david-garcia/phpwhois": "<=4.3.1",
@@ -5629,9 +5720,9 @@
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.62|>=8,<8.5.11|>=8.6,<8.6.10",
-                "drupal/drupal": ">=7,<7.62|>=8,<8.5.11|>=8.6,<8.6.10",
-                "erusev/parsedown": "<1.7",
+                "drupal/core": ">=7,<7.65|>=8,<8.5.14|>=8.6,<8.6.13",
+                "drupal/drupal": ">=7,<7.64|>=8,<8.5.13|>=8.6,<8.6.12",
+                "erusev/parsedown": "<1.7.2",
                 "ezsystems/ezpublish-kernel": ">=5.3,<5.3.12.1|>=5.4,<5.4.13.1|>=6,<6.7.9.1|>=6.8,<6.13.5.1|>=7,<7.2.4.1|>=7.3,<7.3.2.1",
                 "ezsystems/ezpublish-legacy": ">=5.3,<5.3.12.6|>=5.4,<5.4.12.3|>=2011,<2017.12.4.3|>=2018.6,<2018.6.1.4|>=2018.9,<2018.9.1.3",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1",
@@ -5658,7 +5749,7 @@
                 "la-haute-societe/tcpdf": "<6.2.22",
                 "laravel/framework": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.42|>=5.6,<5.6.30",
                 "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
-                "league/commonmark": ">=0.15.6,<0.18.1",
+                "league/commonmark": "<0.18.3",
                 "magento/magento1ce": "<1.9.4",
                 "magento/magento1ee": ">=1.9,<1.14.4",
                 "magento/product-community-edition": ">=2,<2.2.7",
@@ -5727,11 +5818,11 @@
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
                 "tecnickcom/tcpdf": "<6.2.22",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
-                "thelia/thelia": ">=2.1.0-beta1,<2.1.3|>=2.1,<2.1.2",
+                "thelia/thelia": ">=2.1,<2.1.2|>=2.1.0-beta1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
                 "titon/framework": ">=0,<9.9.99",
                 "truckersmp/phpwhois": "<=4.3.1",
-                "twig/twig": "<1.20",
+                "twig/twig": "<1.38|>=2,<2.7",
                 "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.23|>=9,<9.5.4",
                 "typo3/cms-core": ">=8,<8.7.23|>=9,<9.5.4",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
@@ -5751,6 +5842,7 @@
                 "zendframework/zend-captcha": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-crypt": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-db": ">=2,<2.0.99|>=2.1,<2.1.99|>=2.2,<2.2.10|>=2.3,<2.3.5",
+                "zendframework/zend-developer-tools": ">=1.2.2,<1.2.3",
                 "zendframework/zend-diactoros": ">=1,<1.8.4",
                 "zendframework/zend-feed": ">=1,<2.10.3",
                 "zendframework/zend-form": ">=2,<2.2.7|>=2.3,<2.3.1",
@@ -5785,7 +5877,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2019-02-26T21:14:50+00:00"
+            "time": "2019-04-12T16:05:24+00:00"
         },
         {
             "name": "roave/signature",
@@ -6003,16 +6095,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.10.0",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
+                "reference": "82ebae02209c21113908c229e9883c419720738a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
+                "reference": "82ebae02209c21113908c229e9883c419720738a",
                 "shasum": ""
             },
             "require": {
@@ -6024,7 +6116,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
@@ -6046,7 +6138,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -6057,7 +6149,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -6276,16 +6368,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.3.2",
+            "version": "v3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a"
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/dbcc609971dd9b55f48b8008b553d79fd372ddde",
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde",
                 "shasum": ""
             },
             "require": {
@@ -6324,7 +6416,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-01-30T10:43:17+00:00"
+            "time": "2019-03-06T09:39:45+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -6376,6 +6468,57 @@
                 "validate"
             ],
             "time": "2018-12-25T11:19:39+00:00"
+        },
+        {
+            "name": "wyrihaximus/broadcast",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-broadcast.git",
+                "reference": "b8e004852932213ee5d2ea57d372b3ad5723f481"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast/zipball/b8e004852932213ee5d2ea57d372b3ad5723f481",
+                "reference": "b8e004852932213ee5d2ea57d372b3ad5723f481",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "psr/container": "^1.0",
+                "psr/event-dispatcher": "^0.7 || ^1.0",
+                "psr/log": "^1.0",
+                "react/promise": "^2.7",
+                "wyrihaximus/get-in-packages-composer.jason": "^1.0",
+                "wyrihaximus/iterator-or-array-to-array": "^1.1",
+                "wyrihaximus/list-classes-in-directory": "^1.3"
+            },
+            "require-dev": {
+                "api-clients/test-utilities": "^5.4",
+                "the-orville/exceptions": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "wyrihaximus": {
+                    "broadcast": {
+                        "testing": {
+                            "stdClass": [
+                                "tests/DummyEventListener.php"
+                            ]
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\Broadcast\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2019-04-02T20:48:33+00:00"
         },
         {
             "name": "wyrihaximus/cpu-core-detector",
@@ -7319,12 +7462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-http-middleware-measure.git",
-                "reference": "9723ffdf869d416afe850ff9b2a4df3a93a46075"
+                "reference": "781b6d91b63d5c9f51fdc2023b19fb02dd557c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-http-middleware-measure/zipball/9723ffdf869d416afe850ff9b2a4df3a93a46075",
-                "reference": "9723ffdf869d416afe850ff9b2a4df3a93a46075",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-http-middleware-measure/zipball/781b6d91b63d5c9f51fdc2023b19fb02dd557c0c",
+                "reference": "781b6d91b63d5c9f51fdc2023b19fb02dd557c0c",
                 "shasum": ""
             },
             "require": {
@@ -7354,7 +7497,7 @@
                 }
             ],
             "description": "react/http middleware that gathers metrics on requests passing through",
-            "time": "2019-02-11T10:32:51+00:00"
+            "time": "2019-04-11T14:16:27+00:00"
         },
         {
             "name": "wyrihaximus/react-http-middleware-rewrite",
@@ -9843,7 +9986,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🅱 Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "description": "? Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "bootstrapping",
@@ -9908,7 +10051,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "? Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "compiled",
@@ -9973,7 +10116,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🔍 Nette Finder: find files and directories with an intuitive API.",
+            "description": "? Nette Finder: find files and directories with an intuitive API.",
             "homepage": "https://nette.org",
             "keywords": [
                 "filesystem",
@@ -10033,7 +10176,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
@@ -10096,7 +10239,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.3 features.",
+            "description": "? Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.3 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "code",
@@ -10160,7 +10303,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -10233,7 +10376,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "? Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
