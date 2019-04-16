@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ed8ec70fbcbd2fe36d7865c56f3f07f",
+    "content-hash": "2f8387b85e3b5e4207dc44615b89e934",
     "packages": [
         {
             "name": "api-clients/client-services",
@@ -5015,6 +5015,59 @@
             "time": "2019-03-03T20:17:20+00:00"
         },
         {
+            "name": "reactive-apps/command-metrics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactive-apps/command-metrics.git",
+                "reference": "d1f33b5c181f1c772d0a0ef9d60ed71c0e79cb0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactive-apps/command-metrics/zipball/d1f33b5c181f1c772d0a0ef9d60ed71c0e79cb0d",
+                "reference": "d1f33b5c181f1c772d0a0ef9d60ed71c0e79cb0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "reactive-apps/command": "dev-master",
+                "wyrihaximus/psr-3-callable-throwable-logger": "^1.0",
+                "wyrihaximus/psr-3-context-logger": "^1.0",
+                "wyrihaximus/react-inspector": "dev-master",
+                "wyrihaximus/react-inspector-event-loop": "dev-master",
+                "wyrihaximus/react-inspector-stream": "dev-master"
+            },
+            "require-dev": {
+                "api-clients/test-utilities": "^5.0",
+                "monolog/monolog": "^1.23"
+            },
+            "type": "library",
+            "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "config/di/metrics.php"
+                    ]
+                },
+                "reactive-apps": {
+                    "command": {
+                        "ReactiveApps\\Command\\Metrics\\Command": "src/Command"
+                    },
+                    "listeners": {
+                        "ReactiveApps\\Event\\Shutdown": [
+                            "src/Listener/Metrics.php"
+                        ]
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReactiveApps\\Command\\Metrics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2019-04-05T15:01:11+00:00"
+        },
+        {
             "name": "reactive-apps/command-supervisor",
             "version": "dev-master",
             "source": {
@@ -7609,6 +7662,102 @@
             "time": "2018-07-20T15:28:29+00:00"
         },
         {
+            "name": "wyrihaximus/react-inspector-event-loop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/reactphp-inspector-event-loop.git",
+                "reference": "e826a11ef787e71af68f0da0e660f8a07c0f49d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-inspector-event-loop/zipball/e826a11ef787e71af68f0da0e660f8a07c0f49d5",
+                "reference": "e826a11ef787e71af68f0da0e660f8a07c0f49d5",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "^3.0 || ^2.0",
+                "php": "^7.2",
+                "react/event-loop": "^1.0 || ^0.5",
+                "wyrihaximus/react-inspector": "dev-master"
+            },
+            "require-dev": {
+                "api-clients/test-utilities": "^4.2"
+            },
+            "type": "library",
+            "extra": {
+                "react-inspector": {
+                    "metrics": [
+                        "eventloop.streams.read.min",
+                        "eventloop.streams.read.current",
+                        "eventloop.streams.read.max",
+                        "eventloop.streams.read.total",
+                        "eventloop.streams.read.ticks",
+                        "eventloop.streams.total.min",
+                        "eventloop.streams.total.current",
+                        "eventloop.streams.total.max",
+                        "eventloop.streams.total.total",
+                        "eventloop.streams.total.ticks",
+                        "eventloop.streams.write.min",
+                        "eventloop.streams.write.current",
+                        "eventloop.streams.write.max",
+                        "eventloop.streams.write.total",
+                        "eventloop.streams.write.ticks",
+                        "eventloop.timers.once.current",
+                        "eventloop.timers.once.total",
+                        "eventloop.timers.once.ticks",
+                        "eventloop.timers.periodic.current",
+                        "eventloop.timers.periodic.total",
+                        "eventloop.timers.periodic.ticks",
+                        "eventloop.ticks.future.current",
+                        "eventloop.ticks.future.total",
+                        "eventloop.ticks.future.ticks",
+                        "eventloop.signals.current",
+                        "eventloop.signals.total",
+                        "eventloop.signals.ticks"
+                    ],
+                    "reset": {
+                        "totals": [
+                            "eventloop.streams.read.total",
+                            "eventloop.streams.total.total",
+                            "eventloop.streams.write.total",
+                            "eventloop.timers.once.total",
+                            "eventloop.timers.periodic.total",
+                            "eventloop.ticks.future.total",
+                            "eventloop.signals.total"
+                        ],
+                        "ticks": [
+                            "eventloop.streams.read.ticks",
+                            "eventloop.streams.total.ticks",
+                            "eventloop.streams.write.ticks",
+                            "eventloop.timers.once.ticks",
+                            "eventloop.timers.periodic.ticks",
+                            "eventloop.ticks.future.ticks",
+                            "eventloop.signals.ticks"
+                        ]
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\React\\Inspector\\EventLoop\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com",
+                    "homepage": "http://wyrihaximus.net/"
+                }
+            ],
+            "description": "Inspect react/event-loop package for metrics",
+            "time": "2018-06-30T12:13:06+00:00"
+        },
+        {
             "name": "wyrihaximus/react-inspector-http-middleware-measure",
             "version": "dev-master",
             "source": {
@@ -7656,6 +7805,68 @@
             ],
             "description": "ReactPHP Inspector collector for wyrihaximus/react-http-middleware-measure",
             "time": "2018-09-14T06:07:44+00:00"
+        },
+        {
+            "name": "wyrihaximus/react-inspector-stream",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/reactphp-inspector-stream.git",
+                "reference": "b7d411b789e1774e47a5a4f0d1968e6aa255d7c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-inspector-stream/zipball/b7d411b789e1774e47a5a4f0d1968e6aa255d7c5",
+                "reference": "b7d411b789e1774e47a5a4f0d1968e6aa255d7c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "react/event-loop": "^1.0 || ^0.5 || ^0.4.3",
+                "react/stream": "^1.0 || ^0.7 || ^0.6",
+                "wyrihaximus/react-inspector": "dev-master"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "^0.3.2",
+                "jakub-onderka/php-parallel-lint": "^0.9.2",
+                "phpunit/phpunit": "^6.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "suggest": {
+                "wyrihaximus/react-event-loop-inspector-f42-bunny": "Bunny bindings"
+            },
+            "type": "library",
+            "extra": {
+                "react-inspector": {
+                    "metrics": [
+                        "eventloop.io.read",
+                        "eventloop.io.write"
+                    ],
+                    "reset": {
+                        "io": [
+                            "eventloop.io.read",
+                            "eventloop.io.write"
+                        ]
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com"
+                }
+            ],
+            "description": "React Stream throughput inspector",
+            "time": "2018-06-30T12:26:43+00:00"
         },
         {
             "name": "wyrihaximus/react-observable-bunny",
@@ -10159,7 +10370,7 @@
                     "homepage": "http://blog.astrumfutura.com"
                 },
                 {
-                    "name": "Théo FIDRY",
+                    "name": "Théo Fidry",
                     "email": "theo.fidry@gmail.com"
                 }
             ],
@@ -12271,6 +12482,7 @@
         "reactive-apps/app": 20,
         "reactive-apps/command-bunny-consumer": 20,
         "reactive-apps/command-http-server": 20,
+        "reactive-apps/command-metrics": 20,
         "reactive-apps/command-supervisor": 20,
         "roave/security-advisories": 20,
         "wyrihaximus/react-http-middleware-measure": 20,

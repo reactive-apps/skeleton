@@ -30,3 +30,6 @@ smoke:
 
 ci-coverage: init
 	composer ci-coverage
+
+dev:
+	docker-compose down --remove-orphans && docker-compose build && docker-compose up --force-recreate

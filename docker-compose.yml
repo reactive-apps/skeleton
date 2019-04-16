@@ -1,0 +1,68 @@
+version: '3.6'
+
+services:
+  app:
+    restart: always
+    ports:
+      - '54321:54321'
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile-app
+      target: cli-dev
+    volumes:
+      - .:/opt/app
+    depends_on:
+      - rabbitmq
+      - grafana
+      - telegraf
+    links:
+      - rabbitmq
+    healthcheck:
+      test: bash -c "</dev/tcp/localhost/54321"
+
+  rabbitmq:
+    restart: always
+    ports:
+      - '15672:15672'
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile-rabbitmq
+    healthcheck:
+      test: bash -c "</dev/tcp/localhost/5672"
+
+  telegraf:
+    image: telegraf:1.7-alpine
+    restart: always
+    volumes:
+      - ./.docker/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - graphite
+      - rabbitmq
+    links:
+      - graphite
+      - rabbitmq
+    ports:
+      - '8125:8125/udp'
+
+  graphite:
+    image: graphiteapp/graphite-statsd
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    restart: always
+    depends_on:
+      - graphite
+    env_file: .docker/composer.dev.env
+    links:
+      - graphite
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./.docker/grafana/provisioning/:/etc/grafana/provisioning/
+      - ./.docker/grafana/dashboards/:/var/lib/grafana/dashboards/
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}

@@ -10,6 +10,7 @@
         "reactive-apps/app": "dev-master",
         "reactive-apps/command-bunny-consumer": "dev-master",
         "reactive-apps/command-http-server": "dev-master",
+        "reactive-apps/command-metrics": "dev-master",
         "reactive-apps/command-supervisor": "dev-master",
         "roave/security-advisories": "dev-master",
         "vlucas/phpdotenv": "^3.3",
