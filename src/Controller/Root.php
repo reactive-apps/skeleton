@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use React\EventLoop\LoopInterface;
 use ReactiveApps\Command\HttpServer\Annotations\Method;
-use ReactiveApps\Command\HttpServer\Annotations\Route;
+use ReactiveApps\Command\HttpServer\Annotations\Routes;
 use RingCentral\Psr7\Response;
 use WyriHaximus\Annotations\Coroutine;
 use function WyriHaximus\React\timedPromise;
@@ -30,7 +30,7 @@ final class Root
 
     /**
      * @Method("GET")
-     * @Route("/")
+     * @Routes("/")
      *
      * @param  ServerRequestInterface $request
      * @return ResponseInterface

@@ -4,14 +4,14 @@ namespace App\Controller;
 
 use Psr\Http\Message\ServerRequestInterface;
 use ReactiveApps\Command\HttpServer\Annotations\Method;
-use ReactiveApps\Command\HttpServer\Annotations\Route;
+use ReactiveApps\Command\HttpServer\Annotations\Routes;
 use RingCentral\Psr7\Response;
 
 final class Ping
 {
     /**
      * @Method("GET")
-     * @Route("/ping")
+     * @Routes("/ping")
      *
      * @param  ServerRequestInterface $request
      * @return Response
