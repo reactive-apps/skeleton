@@ -2,6 +2,7 @@
 
 use function DI\factory;
 use function DI\get;
+use React\Cache\ArrayCache;
 use WyriHaximus\React\Http\Middleware\MeasureMiddleware;
 use WyriHaximus\React\Http\Middleware\WithHeadersMiddleware;
 use WyriHaximus\React\Inspector\Http\Middleware\MeasureMiddlewareCollector;
@@ -36,4 +37,5 @@ return [
     'http-server.pool.min' => 0,
     'http-server.pool.max' => 6,
     'http-server.rewrites' => [],
+    'http-server.public.preload.cache' => new ArrayCache(),
 ];
