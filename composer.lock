@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6706d4e1654e7f61783932c17a765a74",
+    "content-hash": "6382a6c83e5a06c30a45095e595c41fc",
     "packages": [
         {
             "name": "api-clients/client-services",
@@ -3577,6 +3577,42 @@
             "time": "2018-11-02T06:45:45+00:00"
         },
         {
+            "name": "php-di-definitions/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI-Definitions/twig.git",
+                "reference": "4170b1a969f3f243672c1afb0577c33f1de06945"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-DI-Definitions/twig/zipball/4170b1a969f3f243672c1afb0577c33f1de06945",
+                "reference": "4170b1a969f3f243672c1afb0577c33f1de06945",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "twig/twig": "^2.8"
+            },
+            "require-dev": {
+                "php-di/php-di": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "etc/di/twig.php"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-DI definition for twig/twig",
+            "time": "2019-04-17T20:47:14+00:00"
+        },
+        {
             "name": "php-di/invoker",
             "version": "2.0.0",
             "source": {
@@ -5078,12 +5114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactive-apps/command-http-server.git",
-                "reference": "2ca0139840eb43b9c4a1fc154098a9235395cff8"
+                "reference": "4224c326e9e56b0fa31fddac186785c8bdb730b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/2ca0139840eb43b9c4a1fc154098a9235395cff8",
-                "reference": "2ca0139840eb43b9c4a1fc154098a9235395cff8",
+                "url": "https://api.github.com/repos/reactive-apps/command-http-server/zipball/4224c326e9e56b0fa31fddac186785c8bdb730b7",
+                "reference": "4224c326e9e56b0fa31fddac186785c8bdb730b7",
                 "shasum": ""
             },
             "require": {
@@ -5114,6 +5150,7 @@
             },
             "require-dev": {
                 "monolog/monolog": "^1.23",
+                "twig/twig": "^2.8",
                 "wyrihaximus/async-test-utilities": "^1.1",
                 "wyrihaximus/cs-fixer-config": "^1.0",
                 "wyrihaximus/pool-info": "dev-master",
@@ -5162,7 +5199,7 @@
                 "MIT"
             ],
             "description": "HTTP Server command",
-            "time": "2019-04-16T15:42:19+00:00"
+            "time": "2019-04-18T21:31:35+00:00"
         },
         {
             "name": "reactive-apps/command-metrics",
@@ -5740,12 +5777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "ff41a9a96718245c7160588928e6d217cfb0393c"
+                "reference": "9c6c45a2bf8825209fc18861ff666a90f4d878cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ff41a9a96718245c7160588928e6d217cfb0393c",
-                "reference": "ff41a9a96718245c7160588928e6d217cfb0393c",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9c6c45a2bf8825209fc18861ff666a90f4d878cf",
+                "reference": "9c6c45a2bf8825209fc18861ff666a90f4d878cf",
                 "shasum": ""
             },
             "conflict": {
@@ -5780,8 +5817,8 @@
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.65|>=8,<8.5.14|>=8.6,<8.6.13",
-                "drupal/drupal": ">=7,<7.64|>=8,<8.5.13|>=8.6,<8.6.12",
+                "drupal/core": ">=7,<7.65|>=8,<8.5.14|>=8.6,<8.6.14",
+                "drupal/drupal": ">=7,<7.65|>=8,<8.5.14|>=8.6,<8.6.14",
                 "erusev/parsedown": "<1.7.2",
                 "ezsystems/ezpublish-kernel": ">=5.3,<5.3.12.1|>=5.4,<5.4.13.1|>=6,<6.7.9.1|>=6.8,<6.13.5.1|>=7,<7.2.4.1|>=7.3,<7.3.2.1",
                 "ezsystems/ezpublish-legacy": ">=5.3,<5.3.12.6|>=5.4,<5.4.12.3|>=2011,<2017.12.4.3|>=2018.6,<2018.6.1.4|>=2018.9,<2018.9.1.3",
@@ -5937,7 +5974,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2019-04-12T16:05:24+00:00"
+            "time": "2019-04-18T06:59:35+00:00"
         },
         {
             "name": "roave/signature",
@@ -6015,7 +6052,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -6425,6 +6462,73 @@
                 "os detection"
             ],
             "time": "2017-10-21T03:33:59+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v2.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/91cc2594d3143761ce0399c1caffd0b500ffe5b9",
+                "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/polyfill-ctype": "^1.8",
+                "symfony/polyfill-mbstring": "^1.3"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://twig.symfony.com/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2019-04-16T17:14:24+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -12856,7 +12960,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -12920,7 +13024,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -12970,7 +13074,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -13019,7 +13123,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -13187,7 +13291,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -13236,7 +13340,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -13286,7 +13390,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -13439,16 +13543,16 @@
         },
         {
             "name": "thecodingmachine/safe",
-            "version": "v0.1.14",
+            "version": "v0.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "67b654c7effeda8db27c133e5f0cbb638e90d1e4"
+                "reference": "9a4dbc54e397e0bfb152f4b38f8a03040a1e9e3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/67b654c7effeda8db27c133e5f0cbb638e90d1e4",
-                "reference": "67b654c7effeda8db27c133e5f0cbb638e90d1e4",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/9a4dbc54e397e0bfb152f4b38f8a03040a1e9e3e",
+                "reference": "9a4dbc54e397e0bfb152f4b38f8a03040a1e9e3e",
                 "shasum": ""
             },
             "require": {
@@ -13567,7 +13671,7 @@
                 "MIT"
             ],
             "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
-            "time": "2019-03-07T11:09:21+00:00"
+            "time": "2019-04-17T16:09:50+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -13782,6 +13886,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "php-di-definitions/react-event-loop-inspected": 20,
+        "php-di-definitions/twig": 20,
         "reactive-apps/app": 20,
         "reactive-apps/command-bunny-consumer": 20,
         "reactive-apps/command-http-server": 20,

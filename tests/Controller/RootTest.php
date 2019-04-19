@@ -4,9 +4,9 @@ namespace App\Tests\Controller;
 
 use ApiClients\Tools\TestUtilities\TestCase;
 use App\Controller\Root;
-use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
 use React\Promise\Promise;
+use ReactiveApps\Command\HttpServer\TemplateResponse;
 use Recoil\React\ReactKernel;
 use RingCentral\Psr7\ServerRequest;
 
@@ -34,7 +34,7 @@ final class RootTest extends TestCase
                 }
             });
         });
-        /** @var ResponseInterface $response */
+        /** @var TemplateResponse $response */
         $response = $this->await($promise, $loop);
         $finishedTime = \time();
         self::assertSame(200, $response->getStatusCode());
@@ -47,6 +47,13 @@ final class RootTest extends TestCase
             $response->getHeaders()
         );
         $took = $finishedTime - $creationTime;
-        self::assertSame('This service was started ' . $took . ' seconds ago, processing your request took ' . $took . ' seconds', $response->getBody()->getContents());
+        self::assertSame('', $response->getBody()->getContents());
+        self::assertSame(
+            [
+                'uptime' => $took,
+                'took' => $took,
+            ],
+            $response->getTemplateData()
+        );
     }
 }

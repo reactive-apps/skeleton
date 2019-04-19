@@ -8,6 +8,7 @@
         "php": "^7.3",
         "brunty/cigar": "^1.11",
         "php-di-definitions/react-event-loop-inspected": "dev-master",
+        "php-di-definitions/twig": "dev-master",
         "reactive-apps/app": "dev-master",
         "reactive-apps/command-bunny-consumer": "dev-master",
         "reactive-apps/command-http-server": "dev-master",

@@ -7,7 +7,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use React\EventLoop\LoopInterface;
 use ReactiveApps\Command\HttpServer\Annotations\Method;
 use ReactiveApps\Command\HttpServer\Annotations\Routes;
-use RingCentral\Psr7\Response;
+use ReactiveApps\Command\HttpServer\Annotations\Template;
+use ReactiveApps\Command\HttpServer\TemplateResponse;
 use WyriHaximus\Annotations\Coroutine;
 use function WyriHaximus\React\timedPromise;
 
@@ -31,6 +32,7 @@ final class Root
     /**
      * @Method("GET")
      * @Routes("/")
+     * @Template("root")
      *
      * @param  ServerRequestInterface $request
      * @return ResponseInterface
@@ -41,10 +43,12 @@ final class Root
 
         yield timedPromise($this->loop, \random_int(1, 5));
 
-        return new Response(
+        return (new TemplateResponse(
             200,
-            ['Content-Type' => 'text/plain'],
-            'This service was started ' . (\time() - $this->time) . ' seconds ago, processing your request took ' . (\time() - $start) . ' seconds'
-        );
+            ['Content-Type' => 'text/plain']
+        ))->withTemplateData([
+            'uptime' => (\time() - $this->time),
+            'took' => (\time() - $start),
+        ]);
     }
 }
