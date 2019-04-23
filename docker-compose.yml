@@ -11,6 +11,7 @@ services:
       target: cli-dev
     volumes:
       - .:/opt/app
+      - ./.docker/wait-for:/bin/wait-for
     depends_on:
       - rabbitmq
       - grafana
