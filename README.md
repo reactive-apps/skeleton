@@ -51,7 +51,7 @@ configuration file. The `http-server.php` next to it also shows off how it can b
 The `HTTP` server command looks at `composer.json` to find configured controllers and sets those up for when requests 
 come in. A controller can be both static and instanced. With the latter useful for when you need to do more then the 
 basics where no injected dependencies are required. The configuration is done through annotations for the allowed 
-`HTTP` method and route.
+`HTTP` method and route. The HTTP server documentation can be found [here](https://github.com/reactive-apps/command-http-server).
 
 # License
 
