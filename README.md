@@ -30,6 +30,16 @@ commands. For example `./app http-server` will start. It is also possible to run
 the following runs the `HTTP` server, metrics collection, and internal cron (the latter two aren't included by default): 
 `./app multi metrics cron http-server`.
 
+## Docker Compose
+
+Alternatively there is `make dev` that will boot up a full dev environment using `docker-compose` that includes:
+
+* Running this app with the HTTP server available on `localhost:54321` (host might differ on non-Linux platforms)
+* [`Grafana`](https://grafana.com/grafana) on `localhost:3000` with user/password `admin`/`admin` for application, system and services metrics
+* [`Graphite`](https://graphiteapp.org/) / [`InfluxDB`](https://www.influxdata.com/time-series-platform/influxdb/) for metrics storage and feeding them to [`Grafana`](https://grafana.com/grafana)
+* [`Telegraf`](https://www.influxdata.com/time-series-platform/telegraf/) gathering metrics pushing them to [`Graphite`](https://graphiteapp.org/) / [`InfluxDB`](https://www.influxdata.com/time-series-platform/influxdb/)
+* [`RabbitMQ`](https://www.rabbitmq.com/) for message consumer in your app but also used for getting metrics from the app to  [`Telegraf`](https://www.influxdata.com/time-series-platform/telegraf/)
+
 # Logging
 
 The app is by default shipped with [`Monolog`](https://github.com/Seldaek/monolog) for logging and `STDOUT` logging for 
