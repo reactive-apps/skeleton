@@ -2,5 +2,5 @@ FROM wyrihaximusnet/php:7.3-zts-alpine3.10 AS cli-dev
 
 EXPOSE 54321
 WORKDIR /opt/app
-ENTRYPOINT ["/bin/wait-for", "rabbitmq:5672", "-t", "600", "--", "php", "/opt/app/app"]
-CMD ["multi", "http-server", "metrics"]
+ENTRYPOINT ["/bin/wait-for", "rabbitmq:5672", "-t", "600", "--", "/opt/app/vendor/bin/php-watcher"]
+CMD ["--arguments", "multi", "--arguments", "http-server", "--arguments", "metrics", "/opt/app/app"]

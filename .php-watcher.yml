@@ -1,0 +1,12 @@
+watch:
+  - etc
+  - public
+  - src
+extensions:
+  - php
+  - twig
+  - yml
+  - js
+  - css
+ignore:
+  - tests
