@@ -25,7 +25,7 @@
     },
     "require-dev": {
         "api-clients/test-utilities": "^5.0",
-        "seregazhuk/php-watcher": "^0.4.3"
+        "seregazhuk/php-watcher": "^0.5.1"
     },
     "config": {
         "sort-packages": true,
