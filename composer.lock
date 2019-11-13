@@ -2246,7 +2246,7 @@
             "time": "2015-08-22T07:03:35+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.4.0",
             "source": {
                 "type": "git",
@@ -6726,16 +6726,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v4.3.5",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "32f71570547b91879fdbd9cf50317d556ae86916"
+                "reference": "22aecf6b11638ef378fab25d6c5a2da8a31a1448"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/32f71570547b91879fdbd9cf50317d556ae86916",
-                "reference": "32f71570547b91879fdbd9cf50317d556ae86916",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/22aecf6b11638ef378fab25d6c5a2da8a31a1448",
+                "reference": "22aecf6b11638ef378fab25d6c5a2da8a31a1448",
                 "shasum": ""
             },
             "require": {
@@ -6781,7 +6781,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2019-09-19T17:00:15+00:00"
+            "time": "2019-11-12T13:10:02+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -8094,12 +8094,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-broadcast.git",
-                "reference": "9829e77fb0e5fee35c419265c152bf45d6716b3e"
+                "reference": "67bdf304b34567e0f434bc0f9f19d3022cc1aa6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast/zipball/9829e77fb0e5fee35c419265c152bf45d6716b3e",
-                "reference": "9829e77fb0e5fee35c419265c152bf45d6716b3e",
+                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast/zipball/67bdf304b34567e0f434bc0f9f19d3022cc1aa6c",
+                "reference": "67bdf304b34567e0f434bc0f9f19d3022cc1aa6c",
                 "shasum": ""
             },
             "require": {
@@ -8137,7 +8137,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-06-23T13:02:51+00:00"
+            "time": "2019-11-01T21:08:35+00:00"
         },
         {
             "name": "wyrihaximus/constants",
@@ -13282,7 +13282,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "? Nette NEON: encodes and decodes NEON file format.",
             "homepage": "http://ne-on.org",
             "keywords": [
                 "export",
