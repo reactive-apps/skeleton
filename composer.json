@@ -15,7 +15,7 @@
         "reactive-apps/command-metrics": "dev-master",
         "reactive-apps/command-supervisor": "dev-master",
         "roave/security-advisories": "dev-master",
-        "vlucas/phpdotenv": "^3.3",
+        "vlucas/phpdotenv": "^4.0",
         "wyrihaximus/react-http-middleware-measure": "dev-master",
         "wyrihaximus/react-http-middleware-with-headers": "^1.0",
         "wyrihaximus/react-inspector-child-process-pools": "dev-master",
